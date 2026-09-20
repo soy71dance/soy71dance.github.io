@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="藏龙决 - 修仙武侠小说连载平台，提供最新章节、精彩剧情解析、角色背景及修仙世界观详解，致力于打造沉浸式传统武侠阅读体验。">
+    <meta name="keywords" content="藏龙决, 修仙小说, 武侠小说, 网络连载, 玄幻小说">
+    <title>藏龙决-沉浸式修仙武侠小说连载与阅读平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #f4f1ea;
+            --paper-color: #fff;
+            --primary-color: #8b4513;
+            --accent-color: #d4a017;
+            --text-main: #2c241b;
+            --text-secondary: #5e5040;
+            --border-color: #e0dcd5;
+            --shadow-card: 0 4px 12px rgba(139, 69, 19, 0.08);
+            --font-serif: "Songti SC", "SimSun", "Times New Roman", serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a017' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--paper-color);
+            border-bottom: 2px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            margin-left: 5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-login {
+            padding: 6px 18px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .btn-register {
+            padding: 6px 18px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--paper-color);
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 1 1 500px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://picsum.photos/seed/canglong/800/400') center/cover;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 36, 27, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            padding: 40px;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn-read {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #2c241b;
+            padding: 12px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(212, 160, 23, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-read:hover {
+            transform: translateY(-2px);
+            background-color: #e5b529;
+        }
+
+        .hero-info {
+            flex: 1 1 300px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--paper-color);
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #eee;
+            color: var(--text-secondary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .tag.wuxia { background-color: #e3f2fd; color: #1565c0; }
+        .tag.xuanhuan { background-color: #f3e5f5; color: #7b1fa2; }
+        .tag.longzhuang { background-color: #fff3e0; color: #ef6c00; }
+
+        .info-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .info-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 14px;
+        }
+
+        .info-label { color: var(--text-secondary); }
+        .info-value { font-weight: 500; }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Section Styles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            color: var(--text-main);
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Book List */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .book-card {
+            background: var(--paper-color);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .book-cover {
+            height: 280px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .book-cover::after {
+            content: '连载中';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(220, 53, 69, 0.9);
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .book-info {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .book-author {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .book-desc {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .book-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--paper-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .rank-list {
+            list-style: none;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .rank-num {
+            width: 20px;
+            height: 20px;
+            background-color: var(--text-secondary);
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            border-radius: 3px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .rank-item:nth-child(1) .rank-num { background-color: #d4a017; }
+        .rank-item:nth-child(2) .rank-num { background-color: #bcaaa4; }
+        .rank-item:nth-child(3) .rank-num { background-color: #a1887f; }
+
+        .rank-title {
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: 1;
+        }
+
+        .rank-score {
+            font-size: 12px;
+            color: var(--accent-color);
+        }
+
+        /* Content Reader Preview */
+        .chapter-list {
+            background: var(--paper-color);
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .chapter-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f5f5f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .chapter-item:hover {
+            background-color: #fafafa;
+        }
+
+        .chapter-title {
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        .chapter-date {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c241b;
+            color: #ccc;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-family: var(--font-serif);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                flex-direction: column;
+            }
+            .hero-image {
+                min-height: 250px;
+            }
+            .hero-info {
+                padding: 20px;
+            }
+            .book-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            .hero-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">藏龙决<span>网</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">玄幻</a></li>
+                    <li><a href="#">武侠</a></li>
+                    <li><a href="#">仙侠</a></li>
+                    <li><a href="#">榜单</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn-login">登录</a>
+                <a href="#" class="btn-register">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-image">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">藏龙决</h1>
+                    <p class="hero-desc">绝世高手隐于市，风云再起藏龙渊。一场关于传承、复仇与守护的宏大史诗，即将开启。</p>
+                    <a href="#chapter" class="btn-read">立即阅读</a>
+                </div>
+            </div>
+            <div class="hero-info">
+                <span class="tag wuxia">传统武侠</span>
+                <span class="tag longzhuang">连载中</span>
+                <h2 style="margin-top: 15px; font-family: var(--font-serif); font-size: 22px;">作品简介</h2>
+                <p style="font-size: 14px; color: var(--text-secondary); margin-top: 10px;">
+                    江湖传言，得《藏龙决》者得天下。然而，这本秘籍早已在百年前失传。少年叶辰，偶然间在祖宅的夹墙中发现了残缺的卷轴，从此卷入了一场腥风血雨。是顺应天命，还是逆天而行？且看叶辰如何一步步揭开江湖真相，登临绝顶。
+                </p>
+                <ul class="info-list">
+                    <li><span class="info-label">作者</span> <span class="info-value">墨客行</span></li>
+                    <li><span class="info-label">分类</span> <span class="info-value">传统武侠</span></li>
+                    <li><span class="info-label">字数</span> <span class="info-value">1,240,500</span></li>
+                    <li><span class="info-label">状态</span> <span class="info-value">连载至第 856 章</span></li>
+                    <li><span class="info-label">收藏</span> <span class="info-value">45.6 万</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="main-layout">
+            <!-- Left Content -->
+            <section class="content-area">
+                <div class="section-header">
+                    <h2 class="section-title">热门推荐</h2>
+                    <a href="#" class="section-more">查看更多 &raquo;</a>
+                </div>
+                
+                <div class="book-grid">
+                    <article class="book-card">
+                        <div class="book-cover" style="background-image: url('https://picsum.photos/seed/x1/200/280');"></div>
+                        <div class="book-info">
+                            <h3 class="book-title"><a href="#">万古神帝</a></h3>
+                            <p class="book-author">飞天鱼</p>
+                            <p class="book-desc">修真文明背景下的宏大史诗，讲述少年张若尘如何一步步崛起，对抗黑暗势力。</p>
+                            <div class="book-meta">
+                                <span>玄幻</span>
+                                <span>1.2亿</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-cover" style="background-image: url('https://picsum.photos/seed/x2/200/280');"></div>
+                        <div class="book-info">
+                            <h3 class="book-title"><a href="#">神墓</a></h3>
+                            <p class="book-author">辰东</p>
+                            <p class="book-desc">一个关于爱、恨、情、仇的宏大故事，神魔陨落后的万古长夜。</p>
+                            <div class="book-meta">
+                                <span>奇幻</span>
+                                <span>980万</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-cover" style="background-image: url('https://picsum.photos/seed/x3/200/280');"></div>
+                        <div class="book-info">
+                            <h3 class="book-title"><a href="#">遮天</a></h3>
+                            <p class="book-author">辰东</p>
+                            <p class="book-desc">北斗大陆，万族林立，无数天骄争锋，只为争夺那一线成仙机缘。</p>
+                            <div class="book-meta">
+                                <span>仙侠</span>
+                                <span>1200万</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-cover" style="background-image: url('https://picsum.photos/seed/x4/200/280');"></div>
+                        <div class="book-info">
+                            <h3 class="book-title"><a href="#">凡人修仙传</a></h3>
+                            <p class="book-author">忘语</p>
+                            <p class="book-desc">一个普通的山村穷小子，偶然之下，跨入江湖小宗门，虽然资质平庸，但依靠自身努力和算计，修成仙道。</p>
+                            <div class="book-meta">
+                                <span>修仙</span>
+                                <span>1500万</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-header" style="margin-top: 40px;">
+                    <h2 class="section-title">最新章节</h2>
+                    <a href="#" class="section-more">更多章节 &raquo;</a>
+                </div>
+
+                <div class="chapter-list">
+                    <div class="chapter-item">
+                        <a href="#" class="chapter-title">第八百五十六章 残阳如血</a>
+                        <span class="chapter-date">2小时前</span>
+                    </div>
+                    <div class="chapter-item">
+                        <a href="#" class="chapter-title">第八百五十五章 剑意冲霄</a>
+                        <span class="chapter-date">5小时前</span>
+                    </div>
+                    <div class="chapter-item">
+                        <a href="#" class="chapter-title">第八百五十四章 深入藏龙渊</a>
+                        <span class="chapter-date">昨天</span>
+                    </div>
+                    <div class="chapter-item">
+                        <a href="#" class="chapter-title">第八百五十三章 隐世宗门</a>
+                        <span class="chapter-date">昨天</span>
+                    </div>
+                    <div class="chapter-item">
+                        <a href="#" class="chapter-title">第八百五十二章 旧日恩怨</a>
+                        <span class="chapter-date">3天前</span>
+                    </div>
+                    <div class="chapter-item">
+                        <a href="#" class="chapter-title">第八百五十一章 惊变</a>
+                        <span class="chapter-date">3天前</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <div class="section-header" style="margin-bottom: 15px; border:none; padding:0;">
+                        <h3 class="section-title" style="font-size: 18px;">月票榜</h3>
+                    </div>
+                    <ul class="rank-list">
+                        <li class="rank-item">
+                            <span class="rank-num">1</span>
+                            <span class="rank-title"><a href="#">万古神帝</a></span>
+                            <span class="rank-score">12.5万</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-num">2</span>
+                            <span class="rank-title"><a href="#">神墓</a></span>
+                            <span class="rank-score">9.8万</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-num">3</span>
+                            <span class="rank-title"><a href="#">完美世界</a></span>
+                            <span class="rank-score">8.2万</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-num">4</span>
+                            <span class="rank-title"><a href="#">遮天</a></span>
+                            <span class="rank-score">7.6万</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-num">5</span>
+                            <span class="rank-title"><a href="#">斗破苍穹</a></span>
+                            <span class="rank-score">6.9万</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <div class="section-header" style="margin-bottom: 15px; border:none; padding:0;">
+                        <h3 class="section-title" style="font-size: 18px;">阅读排行</h3>
+                    </div>
+                    <ul class="rank-list">
+                        <li class="rank-item">
+                            <span class="rank-num">1</span>
+                            <span class="rank-title"><a href="#">藏龙决</a></span>
+                            <span class="rank-score">45.6万</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-num">2</span>
+                            <span class="rank-title"><a href="#">大主宰</a></span>
+                            <span class="rank-score">32.1万</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-num">3</span>
+                            <span class="rank-title"><a href="#">武动乾坤</a></span>
+                            <span class="rank-score">28.5万</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="section-title" style="font-size: 18px; margin-bottom: 15px;">阅读统计</h3>
+                    <div style="text-align: center; padding: 10px 0;">
+                        <div style="font-size: 32px; font-weight: bold; color: var(--primary-color);">1,240,500</div>
+                        <div style="font-size: 12px; color: #999;">累计字数</div>
+                    </div>
+                    <div style="text-align: center; padding: 10px 0; border-top: 1px solid #eee;">
+                        <div style="font-size: 32px; font-weight: bold; color: var(--accent-color);">856</div>
+                        <div style="font-size: 12px; color: #999;">更新章节</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 13px; line-height: 1.8; color: #999;">
+                        藏龙决网致力于为用户提供最优质的网络小说阅读体验，涵盖玄幻、武侠、仙侠等热门题材。我们尊重版权，支持原创。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">起点中文网</a></li>
+                        <li><a href="#">纵横中文网</a></li>
+                        <li><a href="#">番茄小说</a></li>
+                        <li><a href="#">晋江文学城</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">读者反馈</a></li>
+                        <li><a href="#">广告合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>邮箱：contact@canglongjue.com</li>
+                        <li>客服：400-123-4567</li>
+                        <li>地址：网络世界大道88号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 藏龙决网 版权所有. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
