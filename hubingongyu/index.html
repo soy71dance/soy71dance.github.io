@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="湖滨公寓 - 滨水景观住宅社区，提供高品质居住环境、完善的物业管理服务及便捷的周边生活配套。了解我们的户型介绍、物业费标准、入住指南及社区活动信息。">
+    <meta name="keywords" content="湖滨公寓, 滨水住宅, 景观公寓, 物业管理, 入住指南, 户型图">
+    <title>湖滨公寓-品质滨水生活与物业管理服务指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c5f2d; /* 森林绿 */
+            --secondary-color: #97bc62; /* 嫩草绿 */
+            --accent-color: #e6f4ea;
+            --text-dark: #1a1a1a;
+            --text-gray: #666666;
+            --text-light: #999999;
+            --bg-light: #f9fbf9;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-gray);
+            background: var(--accent-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #234d22;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 550px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://picsum.photos/seed/lakeview/1920/1080.jpg') no-repeat center center/cover;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 40px 0;
+            background-color: var(--white);
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Units Showcase */
+        .units-section {
+            padding: 80px 0;
+        }
+
+        .unit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .unit-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .unit-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .unit-image {
+            height: 240px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .unit-info {
+            padding: 25px;
+        }
+
+        .unit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .unit-title {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .unit-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .unit-features {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .unit-features span {
+            background: var(--accent-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .unit-desc {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .unit-btn {
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .unit-btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Community & Amenities */
+        .community-section {
+            background-color: #eef4f0;
+            padding: 80px 0;
+        }
+
+        .community-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .community-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .community-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .community-content p {
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        .amenity-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .amenity-list li::before {
+            content: '✔';
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .contact-icon {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .community-container {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            .nav-menu {
+                display: none; /* Simplified for static demo */
+            }
+            .header-inner {
+                padding: 0 10px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .unit-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-header h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                湖滨公寓 <span>HB RESIDENCES</span>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#features">社区优势</a></li>
+                    <li><a href="#units">户型展示</a></li>
+                    <li><a href="#community">配套设施</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-btn">预约看房</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-tags">
+                        <span class="tag">一线湖景</span>
+                        <span class="tag">精装修交付</span>
+                        <span class="tag">低密度社区</span>
+                    </div>
+                    <h1>尽享滨水静谧生活</h1>
+                    <p>湖滨公寓坐落于城市生态核心区，拥有得天独厚的自然景观资源。我们致力于为业主打造一个舒适、安全、便捷的高品质居住环境，让每一天都充满自然的呼吸。</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#units" class="cta-btn" style="background: white; color: var(--primary-color);">浏览户型</a>
+                        <a href="#community" class="cta-btn" style="background: transparent; border: 2px solid white;">了解配套</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么选择湖滨公寓</h2>
+                    <p>我们不仅提供居所，更提供一种回归自然、尊崇生活的居住体验。</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🌿</div>
+                        <h3>生态景观</h3>
+                        <p>毗邻城市湿地公园，推窗即见湖光山色，四季风景各不相同。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>安全物业</h3>
+                        <p>24小时专业安保巡逻，智能门禁系统，全方位守护您的家庭安全。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚇</div>
+                        <h3>便捷交通</h3>
+                        <p>紧邻城市主干道，地铁口直达，轻松连接城市繁华与静谧。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛒</div>
+                        <h3>生活配套</h3>
+                        <p>楼下即是商业综合体，超市、餐厅、健身房一应俱全，生活无忧。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Units Section -->
+        <section id="units" class="units-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>精选户型展示</h2>
+                    <p>科学的空间布局，合理的采光设计，满足不同家庭的居住需求。</p>
+                </div>
+                <div class="unit-grid">
+                    <!-- Unit 1 -->
+                    <article class="unit-card">
+                        <img src="https://picsum.photos/seed/interior1/600/400" alt="两室两厅户型图" class="unit-image">
+                        <div class="unit-info">
+                            <div class="unit-header">
+                                <h3 class="unit-title">湖景两居</h3>
+                                <span class="unit-price">¥ 8,500/㎡</span>
+                            </div>
+                            <div class="unit-features">
+                                <span>89㎡</span>
+                                <span>2室1厅1卫</span>
+                                <span>南北通透</span>
+                            </div>
+                            <p class="unit-desc">经典户型，主卧朝南，次卧朝北，双阳台设计，视野开阔，尽揽湖光美景。</p>
+                            <a href="#" class="unit-btn">查看详情</a>
+                        </div>
+                    </article>
+
+                    <!-- Unit 2 -->
+                    <article class="unit-card">
+                        <img src="https://picsum.photos/seed/interior2/600/400" alt="三室两厅户型图" class="unit-image">
+                        <div class="unit-info">
+                            <div class="unit-header">
+                                <h3 class="unit-title">阔景三居</h3>
+                                <span class="unit-price">¥ 12,800/㎡</span>
+                            </div>
+                            <div class="unit-features">
+                                <span>128㎡</span>
+                                <span>3室2厅2卫</span>
+                                <span>大横厅</span>
+                            </div>
+                            <p class="unit-desc">超大客厅连接观景阳台，主卧配备独立衣帽间与卫浴，彰显尊贵身份。</p>
+                            <a href="#" class="unit-btn">查看详情</a>
+                        </div>
+                    </article>
+
+                    <!-- Unit 3 -->
+                    <article class="unit-card">
+                        <img src="https://picsum.photos/seed/interior3/600/400" alt="复式户型图" class="unit-image">
+                        <div class="unit-info">
+                            <div class="unit-header">
+                                <h3 class="unit-title">空中复式</h3>
+                                <span class="unit-price">¥ 15,500/㎡</span>
+                            </div>
+                            <div class="unit-features">
+                                <span>160㎡</span>
+                                <span>复式结构</span>
+                                <span>私家花园</span>
+                            </div>
+                            <p class="unit-desc">顶层复式设计，拥有私家露台与花园，动静分区明确，享受极致私密空间。</p>
+                            <a href="#" class="unit-btn">查看详情</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="community-section">
+            <div class="container">
+                <div class="community-container">
+                    <div class="community-gallery">
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/seed/park/400/400" alt="社区公园">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/seed/swimming/400/400" alt="室内泳池">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/seed/cafe/400/400" alt="社区咖啡厅">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/seed/gym/400/400" alt="健身中心">
+                        </div>
+                    </div>
+                    <div class="community-content">
+                        <h2>完善的社区配套</h2>
+                        <p>湖滨公寓内部规划了丰富的休闲娱乐设施，旨在打造“15分钟生活圈”，让您的居住生活更加便利与多彩。</p>
+                        <ul class="amenity-list">
+                            <li>室内恒温泳池与健身房</li>
+                            <li>儿童游乐场与亲子阅读区</li>
+                            <li>社区邻里中心与老年活动室</li>
+                            <li>24小时生鲜便利店与药店</li>
+                        </ul>
+                        <a href="#" class="cta-btn" style="display: inline-block;">参观样板间</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact / FAQ Section -->
+        <section id="contact" class="units-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>联系我们</h2>
+                    <p>无论您有任何咨询或预约需求，我们都随时为您服务。</p>
+                </div>
+                <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: var(--shadow);">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                        <div>
+                            <h3 style="margin-bottom: 20px; color: var(--primary-color);">基本信息</h3>
+                            <ul class="amenity-list" style="margin-bottom: 20px;">
+                                <li><strong>地址：</strong> 城市生态区滨湖大道88号</li>
+                                <li><strong>电话：</strong> 021-1234-5678</li>
+                                <li><strong>传真：</strong> 021-8765-4321</li>
+                                <li><strong>邮箱：</strong> contact@hubingapt.com</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom: 20px; color: var(--primary-color);">营业时间</h3>
+                            <ul class="amenity-list" style="margin-bottom: 20px;">
+                                <li>周一至周日：9:00 - 18:00</li>
+                                <li>周末看房预约：需提前24小时联系</li>
+                            </ul>
+                            <a href="#" class="cta-btn" style="width: 100%; text-align: center;">在线留言</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>湖滨公寓</h3>
+                    <p>致力于为城市精英打造高品质的滨水居住社区，让自然与生活完美融合。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">回到首页</a></li>
+                        <li><a href="#units">房源查询</a></li>
+                        <li><a href="#community">物业公告</a></li>
+                        <li><a href="#">业主论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务支持</h4>
+                    <ul>
+                        <li><a href="#">入住指南</a></li>
+                        <li><a href="#">缴费方式</a></li>
+                        <li><a href="#">投诉建议</a></li>
+                        <li><a href="#">装修备案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul class="contact-info">
+                        <li><span class="contact-icon">📍</span> 城市生态区滨湖大道88号</li>
+                        <li><span class="contact-icon">📞</span> 021-1234-5678</li>
+                        <li><span class="contact-icon">✉️</span> contact@hubingapt.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 湖滨公寓 版权所有 | 沪ICP备12345678号 | 沪公网安备 31010402000000号</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
