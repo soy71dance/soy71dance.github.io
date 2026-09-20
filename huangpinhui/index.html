@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黄品汇-潮流服饰与生活方式精选指南</title>
+    <meta name="description" content="黄品汇为您提供最新的潮流服饰资讯、品牌推荐、穿搭指南及购物攻略。汇聚全球优质时尚单品，助您打造个性风格。">
+    <meta name="keywords" content="黄品汇,潮流服饰,时尚穿搭,品牌推荐,购物指南,街头风格">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #c9a227;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1rem;
+            font-weight: 700;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 70%;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text-main);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-main);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+            /* Placeholder for fashion image */
+            background-image: url('https://picsum.photos/seed/fashionhero/1600/900'); 
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #ddd;
+        }
+
+        /* Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .category-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Trending Grid */
+        .grid-section {
+            margin-bottom: 4rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 300px;
+            width: 100%;
+            background-color: #eee;
+        }
+
+        .product-info {
+            padding: 1.2rem;
+        }
+
+        .product-tag {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* Guides Section */
+        .guides-section {
+            background-color: #fff;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .guide-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .guide-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .guide-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: rgba(0,0,0,0.05);
+            line-height: 1;
+            min-width: 3rem;
+        }
+
+        .guide-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .guide-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">黄品<span>汇</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">当季新品</a></li>
+                    <li><a href="#">潮流资讯</a></li>
+                    <li><a href="#">品牌大全</a></li>
+                    <li><a href="#">穿搭指南</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>探索时尚前沿，定义你的风格</h1>
+                    <p>汇集全球优质服饰资源，为您提供最专业的穿搭建议与购物指南，助您轻松驾驭各种场合。</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#categories" class="btn btn-primary">浏览分类</a>
+                        <a href="#guides" class="btn btn-outline" style="border-color: #fff; color: #fff;">阅读指南</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section id="categories" class="container">
+            <h2 class="section-title">热门分类</h2>
+            <div class="categories">
+                <div class="category-card">
+                    <span class="category-icon">👔</span>
+                    <h3>商务正装</h3>
+                    <p>精英男士首选，剪裁得体</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">👕</span>
+                    <h3>休闲潮流</h3>
+                    <p>街头风格，舒适自在</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">👟</span>
+                    <h3>运动机能</h3>
+                    <p>专业装备，释放活力</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">👜</span>
+                    <h3>配饰箱包</h3>
+                    <p>精致细节，提升质感</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Products -->
+        <section id="products" class="container grid-section">
+            <h2 class="section-title">精选推荐</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <div class="product-image" style="background-image: url('https://picsum.photos/seed/prod1/400/500'); background-size: cover;"></div>
+                    <div class="product-info">
+                        <span class="product-tag">热销</span>
+                        <h3 class="product-title">经典纯色商务衬衫</h3>
+                        <p class="product-price">¥299.00</p>
+                    </div>
+                </article>
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <div class="product-image" style="background-image: url('https://picsum.photos/seed/prod2/400/500'); background-size: cover;"></div>
+                    <div class="product-info">
+                        <span class="product-tag">新品</span>
+                        <h3 class="product-title">复古工装夹克</h3>
+                        <p class="product-price">¥599.00</p>
+                    </div>
+                </article>
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <div class="product-image" style="background-image: url('https://picsum.photos/seed/prod3/400/500'); background-size: cover;"></div>
+                    <div class="product-info">
+                        <span class="product-tag">折扣</span>
+                        <h3 class="product-title">休闲速干运动裤</h3>
+                        <p class="product-price">¥199.00</p>
+                    </div>
+                </article>
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <div class="product-image" style="background-image: url('https://picsum.photos/seed/prod4/400/500'); background-size: cover;"></div>
+                    <div class="product-info">
+                        <span class="product-tag">推荐</span>
+                        <h3 class="product-title">设计师款围巾</h3>
+                        <p class="product-price">¥329.00</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Guides Section -->
+        <section id="guides" class="guides-section">
+            <div class="container">
+                <h2 class="section-title">穿搭指南</h2>
+                <div class="guide-list">
+                    <div class="guide-item">
+                        <div class="guide-number">01</div>
+                        <div class="guide-content">
+                            <h3>夏季清爽穿搭技巧</h3>
+                            <p>如何利用浅色系和透气面料，在炎热天气中保持清爽与时尚。</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <div class="guide-number">02</div>
+                        <div class="guide-content">
+                            <h3>职场商务着装规范</h3>
+                            <p>从领带系法到西装选择，打造专业且不失个性的职场形象。</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <div class="guide-number">03</div>
+                        <div class="guide-content">
+                            <h3>男士配饰搭配法则</h3>
+                            <p>手表、皮带、眼镜等小物件如何提升整体穿搭的精致度。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="container">
+            <div class="categories" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="category-card" style="text-align: left;">
+                    <h3>🚚 极速配送</h3>
+                    <p>全国大部分地区次日达，急单加急处理。</p>
+                </div>
+                <div class="category-card" style="text-align: left;">
+                    <h3>🛡️ 品质保证</h3>
+                    <p>正品保障，支持专柜验货，假一赔十。</p>
+                </div>
+                <div class="category-card" style="text-align: left;">
+                    <h3>💎 专属服务</h3>
+                    <p>7天无理由退换，24小时在线客服支持。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于黄品汇</h4>
+                    <p style="color: #aaa; font-size: 0.9rem; line-height: 1.6;">
+                        黄品汇致力于为时尚爱好者提供最全面的服饰资讯与购物体验。我们精选全球好物，用专业服务连接消费者与品牌。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>购物指南</h4>
+                    <ul>
+                        <li><a href="#">购物流程</a></li>
+                        <li><a href="#">支付方式</a></li>
+                        <li><a href="#">配送服务</a></li>
+                        <li><a href="#">退换货政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客户服务</h4>
+                    <ul>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">隐私条款</a></li>
+                        <li><a href="#">网站地图</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">小红书</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 黄品汇 版权所有 | 本站内容仅供展示参考，不作为购买依据
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
