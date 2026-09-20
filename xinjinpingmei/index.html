@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="新金瓶梅 杨思敏 - 深度解析经典文学改编作品与演员杨思敏的演艺生涯。提供影视作品鉴赏、角色分析及影视文化资讯。">
+    <meta name="keywords" content="新金瓶梅, 杨思敏, 经典影视, 演艺生涯, 影视鉴赏">
+    <title>新金瓶梅 杨思敏 - 经典影视作品鉴赏与演员生涯回顾</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B0000;
+            --secondary-color: #2c2c2c;
+            --accent-color: #c0392b;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --spacing: 20px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/cinema/1600/900') center/cover no-repeat;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--accent-color);
+            color: #fff;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            color: var(--secondary-color);
+        }
+
+        /* Profile Section */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 4px;
+            background-color: #eee;
+        }
+
+        .profile-info h2 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eee;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Works Grid */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .work-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .work-content {
+            padding: 20px;
+        }
+
+        .work-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .work-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .work-desc {
+            font-size: 0.95rem;
+            color: #555;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Analysis Section */
+        .analysis-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 60px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .analysis-content h3 {
+            margin: 20px 0 10px;
+            font-size: 1.4rem;
+        }
+
+        .analysis-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #aaa;
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-img {
+                height: 300px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">经典<span>回顾</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#profile">人物介绍</a></li>
+                <li><a href="#works">代表作品</a></li>
+                <li><a href="#analysis">深度鉴赏</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="hero-content">
+        <h1>新金瓶梅 杨思敏</h1>
+        <p>重温九十年代经典影视改编，探寻杨思敏在演艺生涯中的独特魅力与角色诠释。</p>
+        <a href="#works" class="btn">查看作品</a>
+    </div>
+</div>
+
+<main class="container">
+    <!-- Profile Section -->
+    <section id="profile" class="profile-grid">
+        <div class="profile-img-container">
+            <img src="https://picsum.photos/seed/yangsimin/400/500" alt="杨思敏" class="profile-img">
+        </div>
+        <div class="profile-info">
+            <h2>杨思敏</h2>
+            <div>
+                <span class="tag">台湾演员</span>
+                <span class="tag">90年代活跃</span>
+                <span class="tag">经典角色</span>
+            </div>
+            <p style="margin-top: 15px;">
+                杨思敏，本名金宝娜，1974年出生于日本东京，是90年代华语影视圈中极具辨识度的女演员。她以清纯的外表与独特的气质，在香港和台湾的影视作品中留下了深刻的印象。
+            </p>
+            <p>
+                她的演艺生涯中，最广为人知的角色莫过于在《新金瓶梅》中饰演的潘金莲。这一角色既展现了角色的复杂多面，也成为了她演艺生涯的标志性符号。
+            </p>
+            <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">
+                <p><strong>出生地：</strong> 日本东京</p>
+                <p><strong>代表作品：</strong> 《新金瓶梅》、《魔鬼天使》</p>
+                <p><strong>职业特点：</strong> 擅长演绎风情万种与清纯并存的女性形象。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works">
+        <h2 class="section-title">代表影视作品</h2>
+        <div class="works-grid">
+            <article class="work-card">
+                <img src="https://picsum.photos/seed/panjinlian/400/300" alt="新金瓶梅剧照" class="work-img">
+                <div class="work-content">
+                    <h3>新金瓶梅 (1991)</h3>
+                    <div class="work-meta">导演：李翰祥 | 角色：潘金莲</div>
+                    <p class="work-desc">
+                        该片是李翰祥导演晚年执导的古装巨制，改编自中国古典名著《金瓶梅》。杨思敏饰演的潘金莲，在保留原著人物复杂性的同时，赋予了角色新的视觉层次，成为该片最亮眼的女主角之一。
+                    </p>
+                </div>
+            </article>
+
+            <article class="work-card">
+                <img src="https://picsum.photos/seed/demon/400/300" alt="魔鬼天使剧照" class="work-img">
+                <div class="work-content">
+                    <h3>魔鬼天使 (1990)</h3>
+                    <div class="work-meta">导演：钱文锜 | 类型：爱情/剧情</div>
+                    <p class="work-desc">
+                        在这部影片中，杨思敏展现了不同于古装剧的表演风格，饰演一名性格泼辣、敢爱敢恨的都市女性，影片情节紧凑，情感表达真挚。
+                    </p>
+                </div>
+            </article>
+
+            <article class="work-card">
+                <img src="https://picsum.photos/seed/magic/400/300" alt="异度空间剧照" class="work-img">
+                <div class="work-content">
+                    <h3>异度空间 (1992)</h3>
+                    <div class="work-meta">导演：徐克风格 | 类型：悬疑/惊悚</div>
+                    <p class="work-desc">
+                        一部融合了悬疑与惊悚元素的电影，杨思敏在片中有着不俗的演技表现，通过细腻的眼神和肢体语言，成功塑造了一个令人印象深刻的配角形象。
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analysis" class="analysis-section">
+        <h2 class="section-title">影视鉴赏与文化解读</h2>
+        <div class="analysis-content">
+            <h3>1. 时代的印记</h3>
+            <p>
+                90年代的香港电影正处于百花齐放的黄金时期，虽然类型众多，但古装言情片始终占据一席之地。《新金瓶梅》作为该时期的改编作品，不仅是对原著的视觉化呈现，更折射出当时的社会审美与观众心理。
+            </p>
+            
+            <h3>2. 角色的多面性</h3>
+            <p>
+                在《新金瓶梅》中，杨思敏饰演的潘金莲并非单一的脸谱化反派。影片通过大量的特写镜头和内心戏的刻画，试图展现人物在封建礼教束缚下的挣扎与欲望。杨思敏凭借其标志性的东方古典美，将角色的妩媚与悲剧色彩拿捏得恰到好处。
+            </p>
+
+            <h3>3. 演员的转型与挑战</h3>
+            <p>
+                杨思敏在演艺生涯中尝试过多种风格，从古装到现代，从悲剧到喜剧。虽然因“潘金莲”一角而被部分观众定型，但她并未止步于此，而是积极在各类影视作品中磨练演技，展现了作为演员的专业素养。
+            </p>
+
+            <h3>4. 观影建议</h3>
+            <p>
+                对于想要重温经典影视作品的观众，建议结合当时的制作背景进行观看。90年代的特技与制作虽然不如现代精细，但其独特的叙事节奏和演员的投入度，依然具有极高的观赏价值。
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 经典影视回顾站. 保留所有权利.</p>
+        <p>本站旨在提供影视文化内容的整理与鉴赏，不涉及任何违规内容。</p>
+    </div>
+</footer>
+
+</body>
+</html>
