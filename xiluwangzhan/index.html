@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="西陆网站 - 中国知名军事综合门户网站，提供军事新闻、军情观察、军事历史、军旅文化及军事论坛互动服务。">
+    <meta name="keywords" content="西陆网站,西陆,军事新闻,军情观察,军事论坛,西陆军事">
+    <title>西陆网站-中国知名军事综合门户与军情资讯平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B0000; /* 深红色，象征军旅与严肃 */
+            --secondary-color: #C41E3A; /* 鲜艳红，用于强调 */
+            --accent-color: #1a1a1a; /* 深灰黑，用于文本 */
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --text-main: #333333;
+            --text-light: #666666;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: #f0f0f0;
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 4px 0;
+        }
+
+        .top-bar .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .main-header {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-light);
+            margin-left: 8px;
+            display: none;
+        }
+
+        @media (min-width: 600px) {
+            .logo span { display: inline; }
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+                gap: 24px;
+            }
+            .nav-menu a {
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--text-main);
+                padding: 8px 0;
+                position: relative;
+            }
+            .nav-menu a.active {
+                color: var(--primary-color);
+            }
+            .nav-menu a.active::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background-color: var(--primary-color);
+            }
+        }
+
+        .search-box {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            padding: 8px 12px;
+            border: none;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 24px var(--spacing-unit);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        @media (min-width: 900px) {
+            .hero-section {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .hero-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: 300px;
+            background-color: #ddd;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        }
+
+        .hero-content {
+            padding: 20px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            color: white;
+        }
+
+        .hero-content h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 14px;
+            opacity: 0.9;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .side-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .hot-list {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .hot-list h3 {
+            font-size: 18px;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 12px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hot-item {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: baseline;
+        }
+
+        .hot-item .num {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 16px;
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .hot-item a {
+            font-size: 14px;
+            color: var(--text-main);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .news-thumb {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .news-body {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-tag {
+            font-size: 12px;
+            color: var(--primary-color);
+            background-color: rgba(139, 0, 0, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .news-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .news-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Features Section */
+        .features-section {
+            background-color: white;
+            padding: 40px 0;
+            margin-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            border-color: var(--primary-color);
+            background-color: #fff5f5;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .feature-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        .footer-brand h4 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .footer-links h5 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .footer-links ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            margin-top: 30px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Utilities */
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .section-title a {
+            font-size: 14px;
+            font-weight: normal;
+            color: var(--text-light);
+        }
+        
+        .section-title a:hover {
+            color: var(--primary-color);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>欢迎来到西陆军事网，关注国家安全与国防建设</span>
+            <div class="top-links">
+                <a href="#">登录</a> | <a href="#">注册</a> | <a href="#">手机版</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container main-header">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#8B0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="#8B0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="#8B0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>XILU 西陆</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">军情观察</a>
+                <a href="#">军事历史</a>
+                <a href="#">军旅文化</a>
+                <a href="#">论坛社区</a>
+                <a href="#">视频专区</a>
+            </nav>
+
+            <div class="search-box">
+                <input type="text" placeholder="搜索军事新闻...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-card">
+                <div class="hero-banner" style="background-image: url('https://picsum.photos/seed/military1/800/400.jpg');">
+                    <div class="hero-content">
+                        <h2>聚焦全球军事动态，深度解析国防战略</h2>
+                        <p>深入报道国际局势变化，解读最新军事装备与技术发展，为您提供权威的军事资讯参考。</p>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="hot-list">
+                    <h3>24小时热榜</h3>
+                    <div class="hot-item">
+                        <span class="num">1</span>
+                        <a href="#">东部战区组织战区联合演训，捍卫国家主权</a>
+                    </div>
+                    <div class="hot-item">
+                        <span class="num">2</span>
+                        <a href="#">新一代隐身战机技术突破，突破音障新纪录</a>
+                    </div>
+                    <div class="hot-item">
+                        <span class="num">3</span>
+                        <a href="#">回顾：中国人民解放军海军成立75周年</a>
+                    </div>
+                    <div class="hot-item">
+                        <span class="num">4</span>
+                        <a href="#">专家解读：现代战争中的信息化与智能化</a>
+                    </div>
+                    <div class="hot-item">
+                        <span class="num">5</span>
+                        <a href="#">古代兵器大观：从冷兵器到热武器的演变</a>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <!-- Latest News -->
+        <section>
+            <div class="section-title">
+                <span>最新军事资讯</span>
+                <a href="#">查看更多 &gt;</a>
+            </div>
+            <div class="content-grid">
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/navy/400/250.jpg" alt="海军演习" class="news-thumb">
+                    <div class="news-body">
+                        <span class="news-tag">军情动态</span>
+                        <h3 class="news-title"><a href="#">多国海军举行联合护航行动，提升区域安全合作</a></h3>
+                        <div class="news-meta">
+                            <span>2023-10-24</span>
+                            <span>评论 128</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/airforce/400/250.jpg" alt="空军装备" class="news-thumb">
+                    <div class="news-body">
+                        <span class="news-tag">装备前沿</span>
+                        <h3 class="news-title"><a href="#">新型空地导弹试射成功，实战能力再升级</a></h3>
+                        <div class="news-meta">
+                            <span>2023-10-24</span>
+                            <span>评论 85</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/history/400/250.jpg" alt="历史回顾" class="news-thumb">
+                    <div class="news-body">
+                        <span class="news-tag">历史回眸</span>
+                        <h3 class="news-title"><a href="#">揭秘二战中的关键战役：诺曼底登陆始末</a></h3>
+                        <div class="news-meta">
+                            <span>2023-10-23</span>
+                            <span>评论 342</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/tech/400/250.jpg" alt="科技应用" class="news-thumb">
+                    <div class="news-body">
+                        <span class="news-tag">科技赋能</span>
+                        <h3 class="news-title"><a href="#">无人机群技术在现代战场中的应用前景</a></h3>
+                        <div class="news-meta">
+                            <span>2023-10-23</span>
+                            <span>评论 56</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Feature Grid -->
+        <section class="features-section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <h4 class="feature-title">国防教育</h4>
+                        <p class="feature-desc">普及国防知识，增强全民国防观念，共建强大国防。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📖</div>
+                        <h4 class="feature-title">军事历史</h4>
+                        <p class="feature-desc">纵览古今中外战争史，汲取历史智慧与战略经验。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎬</div>
+                        <h4 class="feature-title">军旅影视</h4>
+                        <p class="feature-desc">精选高分军事题材电影与纪录片，感受热血军魂。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💬</div>
+                        <h4 class="feature-title">互动论坛</h4>
+                        <p class="feature-desc">加入军迷社区，交流装备心得，分享军事见解。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Topic -->
+        <section style="margin-top: 40px;">
+            <div class="section-title">
+                <span>专题报道</span>
+                <a href="#">进入专题 &gt;</a>
+            </div>
+            <div style="background-color: white; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column;">
+                <img src="https://picsum.photos/seed/feature/1200/400.jpg" alt="专题" style="width: 100%; height: auto;">
+                <div style="padding: 24px;">
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">深度观察：新形势下的人民军队现代化建设</h3>
+                    <p style="color: var(--text-light); margin-bottom: 20px;">随着国际形势的深刻变化，人民军队正朝着世界一流军队的目标稳步迈进。本文将从信息化、智能化、联合作战等多个维度，为您深度解析中国军队的现代化建设成果。</p>
+                    <a href="#" style="color: var(--primary-color); font-weight: 600;">阅读全文 &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>XILU 西陆</h4>
+                <p>西陆网站是中国领先的军事综合门户网站，致力于为用户提供权威、及时、深度的军事资讯服务。我们关注国家安全，弘扬爱国主义精神。</p>
+                <div style="font-size: 24px;">
+                    <!-- Social Icons Placeholder -->
+                    <span style="margin-right: 15px;">📷</span>
+                    <span style="margin-right: 15px;">📘</span>
+                    <span style="margin-right: 15px;">📺</span>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h5>栏目导航</h5>
+                <ul>
+                    <li><a href="#">军情观察室</a></li>
+                    <li><a href="#">军事历史</a></li>
+                    <li><a href="#">兵器大观</a></li>
+                    <li><a href="#">军旅文化</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>关于我们</h5>
+                <ul>
+                    <li><a href="#">网站简介</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">版权声明</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>服务支持</h5>
+                <ul>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">网站地图</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 西陆网站 XILU. All Rights Reserved. 互联网ICP备案号：京ICP备XXXXXXXX号</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
